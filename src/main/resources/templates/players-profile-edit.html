@@ -20,7 +20,7 @@ th, td {
 <h1 th:text="*{player.firstName} + ' ' + *{player.lastName}"></h1>
 <div>
     <h3>Edit player</h3>
-    <form action="#" th:object="${player}" method="post">
+    <form action="#" th:action="@{/players/update}" th:object="${player}" method="post">
 
         <input type="hidden" th:field="*{id}">
 
@@ -30,7 +30,7 @@ th, td {
 
         <input type="text" th:field="*{email}" placeholder="Email">
 
-        <input type="date" th:value="*{#dates.format(dateOfBirth, 'yyyy-MM-dd')}" placeholder="Date of Birth">
+        <input type="date" th:field="*{dateOfBirth}" placeholder="Date of Birth">
 
         <button type="submit">Save</button>
 

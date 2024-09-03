@@ -52,4 +52,9 @@ public class PlayersDAOImpl implements PlayersDAO{
         // execute and return Player
         return entityManager.find(Player.class, playerId);
     }
+
+    @Override
+    public void updatePlayer(Player player) {
+        entityManager.merge(player);
+    }
 }

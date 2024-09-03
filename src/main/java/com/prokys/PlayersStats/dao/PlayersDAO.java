@@ -11,4 +11,6 @@ public interface PlayersDAO {
     List<Player> findPlayers(String name);
 
     Player findPlayerById(int playerId);
+
+    void updatePlayer(Player player);
 }

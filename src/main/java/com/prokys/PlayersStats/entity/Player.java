@@ -26,7 +26,7 @@ public class Player {
     private String email;
 
     @Column(name = "date_of_birth")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
 
     // getters and setters
@@ -62,11 +62,11 @@ public class Player {
         this.email = email;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -75,7 +75,7 @@ public class Player {
     public Player() {
     }
 
-    public Player(String firstName, String lastName, String email, Date dateOfBirth) {
+    public Player(String firstName, String lastName, String email, LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

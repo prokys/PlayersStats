@@ -4,9 +4,7 @@ import com.prokys.PlayersStats.entity.Player;
 import com.prokys.PlayersStats.service.PlayersService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +34,8 @@ public class PlayersController {
         // add them to model
         model.addAttribute("players", players);
 
+        System.out.println(players.get(0).getDateOfBirth());
+
         return "players-list";
     }
 
@@ -60,5 +60,14 @@ public class PlayersController {
         model.addAttribute("player", player);
 
         return "players-profile-edit";
+    }
+
+    @PostMapping("/update")
+    public String updatePlayer(@ModelAttribute("player") Player player){
+
+        // update player
+        playersService.updatePlayer(player);
+
+        return "redirect:/players";
     }
 }

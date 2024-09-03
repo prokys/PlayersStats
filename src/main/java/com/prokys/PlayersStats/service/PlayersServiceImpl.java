@@ -3,6 +3,7 @@ package com.prokys.PlayersStats.service;
 import com.prokys.PlayersStats.dao.PlayersDAO;
 import com.prokys.PlayersStats.entity.Player;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,4 +30,12 @@ public class PlayersServiceImpl implements PlayersService{
     public Player findPlayerById(int playerId) {
         return playersDAO.findPlayerById(playerId);
     }
+
+    @Override
+    @Transactional
+    public void updatePlayer(Player player) {
+        playersDAO.updatePlayer(player);
+    }
+
+
 }

@@ -40,7 +40,7 @@ th, td {
                 <a th:text="${player.firstName} + ' ' + ${player.lastName}" th:href="@{/players/profile(playerId=${player.id})}" />
             </td>
             <td th:text="${player.email}" />
-            <td th:text="${#dates.format(player.dateOfBirth, 'dd.MM.yyyy')}" />
+            <td th:text="${#temporals.format(player.dateOfBirth, 'dd.MM.yyyy')}" />
         </tr>
     </tbody>
 </table>

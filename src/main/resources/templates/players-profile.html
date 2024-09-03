@@ -35,7 +35,7 @@ th, td {
         </tr>
         <tr>
             <th>Date of birth</th>
-            <td th:text="*{#dates.format(player.dateOfBirth, 'dd.MM.yyyy')}"/>
+            <td th:text="*{#temporals.format(player.dateOfBirth, 'dd.MM.yyyy')}"/>
         </tr>
     </table>
     <a th:href="@{/players/edit(playerId=${player.id})}">Edit player</a>
