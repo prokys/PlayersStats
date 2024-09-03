@@ -30,7 +30,7 @@ th, td {
 
         <input type="text" th:field="*{email}" placeholder="Email">
 
-        <input type="date" th:field="*{dateOfBirth}" placeholder="Date of Birth">
+        <input type="date" th:value="*{#dates.format(dateOfBirth, 'yyyy-MM-dd')}" placeholder="Date of Birth">
 
         <button type="submit">Save</button>
 
