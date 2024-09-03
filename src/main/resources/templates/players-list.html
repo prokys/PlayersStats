@@ -20,6 +20,11 @@ th, td {
 
 <h1>FBC Liberec players</h1>
 <hr>
+<form action="#" th:action="@{/players/getPlayers}" method="get">
+    <input type="text" name="name" placeholder="Search">
+    <input type="submit" placeholder="Search">
+</form>
+
 
 <table>
     <thead>

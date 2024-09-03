@@ -31,6 +31,20 @@ public class PlayersDAOImpl implements PlayersDAO{
 
         return players;
     }
+    public List<Player> findPlayers(String name) {
+
+        // create query
+        TypedQuery<Player> query = entityManager.createQuery("FROM Player WHERE LOWER(firstName) LIKE LOWER(:name) OR LOWER(lastName) LIKE LOWER(:name)", Player.class);
+
+        // add parameter
+        query.setParameter("name", name+"%");
+
+        // execute query
+        List<Player> players = query.getResultList();
+
+        return players;
+    }
+
 
     @Override
     public Player findPlayerById(int playerId) {

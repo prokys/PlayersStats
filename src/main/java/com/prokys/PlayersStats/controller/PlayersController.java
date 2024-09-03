@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,7 +26,6 @@ public class PlayersController {
 
         // get list of players from database
         List<Player> players = playersService.findPlayers();
-
 
         // add them to model
         model.addAttribute("players", players);
@@ -56,4 +56,17 @@ public class PlayersController {
         return "players-profile-edit";
     }
 
+    @GetMapping("/getPlayers")
+    private String getPlayers(@RequestParam("name") String name, Model model){
+        List<Player> players = new ArrayList<>();
+
+        if (name.equals("")){
+            players = playersService.findPlayers();
+            model.addAttribute("players", players);
+        } else {
+            players = playersService.findPlayers(name);
+            model.addAttribute("players", players);
+        }
+        return "players-list";
+    }
 }

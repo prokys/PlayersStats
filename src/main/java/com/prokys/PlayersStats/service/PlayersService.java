@@ -8,5 +8,7 @@ public interface PlayersService {
 
     List<Player> findPlayers();
 
+    List<Player> findPlayers(String name);
+
     Player findPlayerById(int playerId);
 }
