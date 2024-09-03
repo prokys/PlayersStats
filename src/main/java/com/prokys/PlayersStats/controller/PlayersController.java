@@ -17,15 +17,21 @@ public class PlayersController {
 
     private PlayersService playersService;
 
-    public PlayersController (PlayersService service){
+    public PlayersController(PlayersService service) {
         playersService = service;
     }
 
     @GetMapping()
-    public String listPlayers(Model model){
+    public String listPlayers(@RequestParam(name = "name", required = false) String name, Model model) {
+        List<Player> players;
 
-        // get list of players from database
-        List<Player> players = playersService.findPlayers();
+        if (name != null && !name.isEmpty()) {
+            // get list of players from database
+            players = playersService.findPlayers(name);
+        } else {
+            // get list of players starting with "name" parameter from database
+            players = playersService.findPlayers();
+        }
 
         // add them to model
         model.addAttribute("players", players);
@@ -34,8 +40,7 @@ public class PlayersController {
     }
 
     @GetMapping("/profile")
-    public String getPlayersProfile(@RequestParam("playerId") int playerId, Model model){
-
+    public String getPlayersProfile(@RequestParam("playerId") int playerId, Model model) {
         // find player by id
         Player player = playersService.findPlayerById(playerId);
 
@@ -44,8 +49,9 @@ public class PlayersController {
 
         return "players-profile";
     }
+
     @GetMapping("/edit")
-    public String getPlayersProfileEdit(@RequestParam("playerId") int playerId, Model model){
+    public String getPlayersProfileEdit(@RequestParam("playerId") int playerId, Model model) {
 
         // find player by id
         Player player = playersService.findPlayerById(playerId);
@@ -54,19 +60,5 @@ public class PlayersController {
         model.addAttribute("player", player);
 
         return "players-profile-edit";
-    }
-
-    @GetMapping("/getPlayers")
-    private String getPlayers(@RequestParam("name") String name, Model model){
-        List<Player> players = new ArrayList<>();
-
-        if (name.equals("")){
-            players = playersService.findPlayers();
-            model.addAttribute("players", players);
-        } else {
-            players = playersService.findPlayers(name);
-            model.addAttribute("players", players);
-        }
-        return "players-list";
     }
 }
