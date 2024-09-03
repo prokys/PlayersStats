@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h1 th:text="*{player.firstName} + ' ' + *{player.lastName}"></h1>
+<div>
+    <h3>Personal info</h3>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <td th:text="*{player.firstName}"/>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td th:text="*{player.lastName}"/>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td th:text="*{player.email}"/>
+        </tr>
+        <tr>
+            <th>Date of birth</th>
+            <td th:text="*{player.dateOfBirth}"/>
+        </tr>
+    </table>
+</div>
+<div>
+    <h3>Statistics</h3>
+
+    <p>tbd</p>
+</div>
+
+
+</body>
+</html>

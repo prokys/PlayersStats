@@ -35,7 +35,7 @@ public class PlayersController {
     }
 
     @GetMapping("/profile")
-    public String getPlayersProfile(@RequestParam int playerId, Model model){
+    public String getPlayersProfile(@RequestParam("playerId") int playerId, Model model){
 
         // find player by id
         Player player = playersService.findPlayerById(playerId);

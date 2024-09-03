@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Players List</title>
+
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
 </head>
 <body>
 
@@ -13,16 +24,16 @@
 <table>
     <thead>
         <tr>
-            <th>First name</th>
-            <th>Last name</th>
+            <th>Name</th>
             <th>Email</th>
             <th>Date of birth</th>
         </tr>
     </thead>
     <tbody>
         <tr th:each="player : ${players}">
-            <td th:text="${player.firstName}" />
-            <td th:text="${player.lastName}" />
+            <td >
+                <a th:text="${player.firstName} + ' ' + ${player.lastName}" th:href="@{/players/profile(playerId=${player.id})}" />
+            </td>
             <td th:text="${player.email}" />
             <td th:text="${player.dateOfBirth}" />
         </tr>
