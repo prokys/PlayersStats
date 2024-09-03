@@ -24,7 +24,7 @@ public class PlayersDAOImpl implements PlayersDAO{
     public List<Player> findPlayers() {
 
         // create query
-        TypedQuery<Player> query = entityManager.createQuery("FROM Players", Player.class);
+        TypedQuery<Player> query = entityManager.createQuery("FROM Player", Player.class);
 
         // execute query
         List<Player> players = query.getResultList();

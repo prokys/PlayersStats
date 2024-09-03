@@ -1,5 +1,6 @@
 package com.prokys.PlayersStats.controller;
 
+import com.prokys.PlayersStats.dao.PlayersDAO;
 import com.prokys.PlayersStats.entity.Player;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,14 +16,15 @@ import java.util.List;
 @RequestMapping("/players")
 public class PlayersController {
 
+    private PlayersDAO playersDAO;
+
+    public PlayersController (PlayersDAO dao){
+        playersDAO = dao;
+    }
+
     @GetMapping("/")
     public String listPlayers(Model model){
-        List<Player> players = new ArrayList<>();
-        LocalDate date = LocalDate.of(2024,1,2);
-
-        players.add(new Player("ASDAS", "ADSD", "asdads@gmail.com", date));
-        players.add(new Player("Test", "Test", "Test@gmail.com", date));
-
+        List<Player> players = playersDAO.findPlayers();
 
         model.addAttribute("players", players);
 
