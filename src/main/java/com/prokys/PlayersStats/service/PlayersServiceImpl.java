@@ -19,4 +19,9 @@ public class PlayersServiceImpl implements PlayersService{
     public List<Player> findPlayers() {
         return playersDAO.findPlayers();
     }
+
+    @Override
+    public Player findPlayerById(int playerId) {
+        return playersDAO.findPlayerById(playerId);
+    }
 }

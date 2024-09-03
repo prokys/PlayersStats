@@ -7,4 +7,6 @@ import java.util.List;
 public interface PlayersService {
 
     List<Player> findPlayers();
+
+    Player findPlayerById(int playerId);
 }

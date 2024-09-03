@@ -31,4 +31,11 @@ public class PlayersDAOImpl implements PlayersDAO{
 
         return players;
     }
+
+    @Override
+    public Player findPlayerById(int playerId) {
+
+        // execute and return Player
+        return entityManager.find(Player.class, playerId);
+    }
 }
