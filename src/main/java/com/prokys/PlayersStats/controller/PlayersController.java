@@ -2,7 +2,6 @@ package com.prokys.PlayersStats.controller;
 
 import com.prokys.PlayersStats.entity.Player;
 import com.prokys.PlayersStats.service.PlayersService;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,4 +44,16 @@ public class PlayersController {
 
         return "players-profile";
     }
+    @GetMapping("/edit")
+    public String getPlayersProfileEdit(@RequestParam("playerId") int playerId, Model model){
+
+        // find player by id
+        Player player = playersService.findPlayerById(playerId);
+
+        // add them to model
+        model.addAttribute("player", player);
+
+        return "players-profile-edit";
+    }
+
 }

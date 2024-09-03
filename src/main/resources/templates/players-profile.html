@@ -38,6 +38,7 @@ th, td {
             <td th:text="*{player.dateOfBirth}"/>
         </tr>
     </table>
+    <a style="btn" th:href="@{/players/edit(playerId=${player.id})}">Edit player</a>
 </div>
 <div>
     <h3>Statistics</h3>

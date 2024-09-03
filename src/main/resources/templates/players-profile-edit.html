@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h1 th:text="*{player.firstName} + ' ' + *{player.lastName}"></h1>
+<div>
+    <h3>Edit player</h3>
+    <form action="#" th:object="${player}" method="post">
+
+        <input type="hidden" th:field="*{id}">
+
+        <input type="text" th:field="*{firstName}" placeholder="First Name">
+
+        <input type="text" th:field="*{lastName}" placeholder="Last Name">
+
+        <input type="text" th:field="*{email}" placeholder="Email">
+
+        <input type="date" th:field="*{dateOfBirth}" placeholder="Date of Birth">
+
+        <button type="submit">Save</button>
+
+    </form>
+</div>
+<div>
+    <h3>Statistics</h3>
+
+    <p>tbd</p>
+</div>
+
+
+</body>
+</html>
