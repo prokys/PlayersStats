@@ -18,6 +18,7 @@ th, td {
 <body>
 
 <h1 th:text="*{player.firstName} + ' ' + *{player.lastName}"></h1>
+<hr>
 <div>
     <h3>Edit player</h3>
     <form action="#" th:action="@{/players/update}" th:object="${player}" method="post">
@@ -35,6 +36,9 @@ th, td {
         <button type="submit">Save</button>
 
     </form>
+
+    <a th:href="@{/players/profile(playerId=${player.id})}">Back to profile</a>
+
 </div>
 <div>
     <h3>Statistics</h3>

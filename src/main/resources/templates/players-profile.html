@@ -18,6 +18,7 @@ th, td {
 <body>
 
 <h1 th:text="*{player.firstName} + ' ' + *{player.lastName}"></h1>
+<hr>
 <div>
     <h3>Personal info</h3>
     <table>
@@ -39,6 +40,8 @@ th, td {
         </tr>
     </table>
     <a th:href="@{/players/edit(playerId=${player.id})}">Edit player</a>
+    <br><br>
+    <a th:href="@{/players}">Back</a>
 </div>
 <div>
     <h3>Statistics</h3>
