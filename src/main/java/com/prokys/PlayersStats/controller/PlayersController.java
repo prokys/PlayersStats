@@ -34,8 +34,6 @@ public class PlayersController {
         // add them to model
         model.addAttribute("players", players);
 
-        System.out.println(players.get(0).getDateOfBirth());
-
         return "players-list";
     }
 
@@ -68,6 +66,6 @@ public class PlayersController {
         // update player
         playersService.updatePlayer(player);
 
-        return "redirect:/players";
+        return "redirect:/players/profile?playerId="+player.getId();
     }
 }

@@ -2,6 +2,7 @@ package com.prokys.PlayersStats.entity;
 
 import jakarta.persistence.*;
 import org.springframework.cglib.core.Local;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -25,6 +26,7 @@ public class Player {
     @Column(name = "email")
     private String email;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
