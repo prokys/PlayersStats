@@ -1,11 +1,9 @@
 package com.prokys.PlayersStats.entity;
 
 import jakarta.persistence.*;
-import org.springframework.cglib.core.Local;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "players")

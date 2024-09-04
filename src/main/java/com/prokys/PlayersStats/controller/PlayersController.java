@@ -45,6 +45,9 @@ public class PlayersController {
         // add them to model
         model.addAttribute("player", player);
 
+        if (player == null){
+            return "redirect:/players";
+        }
         return "players-profile";
     }
 
@@ -67,5 +70,14 @@ public class PlayersController {
         playersService.updatePlayer(player);
 
         return "redirect:/players/profile?playerId="+player.getId();
+    }
+
+    @GetMapping("/addNewPlayer")
+    public String addNewPlayer(Model model){
+        Player player = new Player();
+
+        model.addAttribute("player", player);
+
+        return "players-profile-edit";
     }
 }
