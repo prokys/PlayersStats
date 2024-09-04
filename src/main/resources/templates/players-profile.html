@@ -47,6 +47,34 @@ th, td {
 <div>
     <h3>Statistics</h3>
 
+    <table>
+        <thead>
+        <tr>
+            <th>Date of match</th>
+            <th>Opponent</th>
+            <th>Location</th>
+            <th>Season</th>
+            <th>Goals</th>
+            <th>Assists</th>
+            <th>Combined</th>
+            <th>penalties</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="playerMatchStat : ${player.playersMatchesStats}">
+            <td th:text="${playerMatchStat.match.matchDate}"></td>
+            <td th:text="${playerMatchStat.match.opponent}"></td>
+            <td th:text="${playerMatchStat.match.location}"></td>
+            <td th:text="${playerMatchStat.match.season}"></td>
+            <td th:text="${playerMatchStat.goals}">
+            <td th:text="${playerMatchStat.assists}">
+            <td th:text="${playerMatchStat.goals} + ${playerMatchStat.assists}">
+            <td th:text="${playerMatchStat.penalties}">
+        </tr>
+        </tbody>
+    </table>
+
     <p>tbd</p>
 </div>
 
