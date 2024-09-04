@@ -29,6 +29,12 @@ public class PlayersMatchesStats {
     @Column(name = "penalties")
     private int penalties;
 
+    @Column(name = "on_field_difference")
+    private int onFieldDifference;
+
+    @Column(name = "shots")
+    private int shots;
+
     // getters and setters
 
     public int getId() {
@@ -79,6 +85,21 @@ public class PlayersMatchesStats {
         this.penalties = penalties;
     }
 
+    public int getOnFieldDifference() {
+        return onFieldDifference;
+    }
+
+    public void setOnFieldDifference(int onFieldDifference) {
+        this.onFieldDifference = onFieldDifference;
+    }
+
+    public int getShots() {
+        return shots;
+    }
+
+    public void setShots(int shots) {
+        this.shots = shots;
+    }
 
     // constructors
     public PlayersMatchesStats() {
