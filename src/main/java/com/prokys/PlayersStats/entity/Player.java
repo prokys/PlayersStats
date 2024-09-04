@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "players")
@@ -27,6 +28,9 @@ public class Player {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
+
+    @OneToMany(mappedBy = "player")
+    List<PlayersMatchesStats> playersMatchesStats;
 
 
     // getters and setters
@@ -68,6 +72,14 @@ public class Player {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public List<PlayersMatchesStats> getPlayersMatchesStats() {
+        return playersMatchesStats;
+    }
+
+    public void setPlayersMatchesStats(List<PlayersMatchesStats> playersMatchesStats) {
+        this.playersMatchesStats = playersMatchesStats;
     }
 
     // constructors
