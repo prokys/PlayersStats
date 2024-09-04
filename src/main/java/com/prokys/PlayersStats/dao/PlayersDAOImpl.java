@@ -57,4 +57,12 @@ public class PlayersDAOImpl implements PlayersDAO{
     public void updatePlayer(Player player) {
         entityManager.merge(player);
     }
+
+    @Override
+    public void deleteById(int id) {
+        Player player = entityManager.find(Player.class, id);
+
+        entityManager.remove(player);
+    }
+
 }

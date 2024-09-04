@@ -37,5 +37,11 @@ public class PlayersServiceImpl implements PlayersService{
         playersDAO.updatePlayer(player);
     }
 
+    @Override
+    @Transactional
+    public void deletePlayer(int id) {
+        playersDAO.deleteById(id);
+    }
+
 
 }

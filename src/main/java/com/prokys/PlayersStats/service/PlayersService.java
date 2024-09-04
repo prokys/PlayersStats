@@ -13,4 +13,6 @@ public interface PlayersService {
     Player findPlayerById(int playerId);
 
     void updatePlayer(Player player);
+
+    void deletePlayer(int id);
 }

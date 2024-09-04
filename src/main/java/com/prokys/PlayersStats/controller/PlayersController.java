@@ -80,4 +80,12 @@ public class PlayersController {
 
         return "players-profile-edit";
     }
+
+    @GetMapping("/delete")
+    public String deletePlayer(@RequestParam("playerId") int id){
+
+        playersService.deletePlayer(id);
+
+        return "redirect:/players";
+    }
 }

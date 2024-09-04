@@ -32,6 +32,7 @@ th, td {
             <th>Name</th>
             <th>Email</th>
             <th>Date of birth</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -41,6 +42,9 @@ th, td {
             </td>
             <td th:text="${player.email}" />
             <td th:text="${#temporals.format(player.dateOfBirth, 'dd.MM.yyyy')}" />
+            <td>
+                <a th:href="@{/players/delete(playerId=${player.id})}" onclick="if (!(confirm('Are you sure you want to delete player?'))) return false">Delete</a>
+            </td>
         </tr>
     </tbody>
 </table>

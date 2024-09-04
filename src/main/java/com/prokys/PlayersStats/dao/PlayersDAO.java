@@ -13,4 +13,6 @@ public interface PlayersDAO {
     Player findPlayerById(int playerId);
 
     void updatePlayer(Player player);
+
+    void deleteById(int id);
 }
