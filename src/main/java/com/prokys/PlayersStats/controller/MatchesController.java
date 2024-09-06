@@ -34,6 +34,15 @@ public class MatchesController {
         return "matches-list";
     }
 
+    @GetMapping("/detail")
+    public String matchDetail(@RequestParam(name = "matchId") int id, Model model){
+        Match match = matchesService.findMatchById(id);
+
+        model.addAttribute("match", match);
+
+        return "matches-detail";
+    }
+
     @GetMapping("/addNewMatch")
     public String addNewMatch(Model model){
         Match match = new Match();

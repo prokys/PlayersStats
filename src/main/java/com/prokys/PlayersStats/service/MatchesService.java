@@ -10,4 +10,6 @@ public interface MatchesService {
 
     public List<Match> findMatches(String text);
 
+    Match findMatchById(int id);
+
 }

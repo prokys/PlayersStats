@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Match detail</title>
+
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h1>Match detail</h1>
+<hr>
+<div>
+    <h3>Match info</h3>
+    <table>
+        <tr>
+            <th>Match date</th>
+            <td th:text="*{#temporals.format(match.matchDate, 'dd.MM.yyyy')}"/>
+        </tr>
+        <tr>
+            <th>Home team</th>
+            <td th:text="*{match.homeTeam}"/>
+        </tr>
+        <tr>
+            <th>Opponent</th>
+            <td th:text="*{match.opponent}"/>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <td th:text="*{match.location}"/>
+        </tr>
+        <tr>
+            <th>Season</th>
+            <td th:text="*{match.season}"/>
+        </tr>
+
+    </table>
+    <a th:href="@{/matches/edit(matchId=${match.id})}">Edit match</a>
+    <a th:href="@{/matches/delete(matchId=${match.id})}" onclick="if (!(confirm('Are you sure you want to delete player?'))) return false">Delete match</a>
+    <br><br>
+    <a th:href="@{/matches}">Back</a>
+</div>
+
+</body>
+</html>

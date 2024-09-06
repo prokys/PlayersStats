@@ -24,4 +24,8 @@ public class MatchesServiceImpl implements MatchesService{
     public List<Match> findMatches(String text) {
         return matchesDao.findMatches(text);
     }
+    @Override
+    public Match findMatchById(int id){
+        return matchesDao.findMatchById(id);
+    };
 }

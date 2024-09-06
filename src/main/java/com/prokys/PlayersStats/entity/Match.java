@@ -1,6 +1,7 @@
 package com.prokys.PlayersStats.entity;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Match {
     @Id
     private int id;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "match_date")
     private LocalDate matchDate;
 

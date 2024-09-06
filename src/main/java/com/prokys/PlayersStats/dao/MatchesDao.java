@@ -10,4 +10,6 @@ public interface MatchesDao {
 
     List<Match> findMatches(String text);
 
+    Match findMatchById(int id);
+
 }
