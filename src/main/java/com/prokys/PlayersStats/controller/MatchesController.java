@@ -40,6 +40,9 @@ public class MatchesController {
 
         model.addAttribute("match", match);
 
+        if (match == null){
+            return "redirect:/matches";
+        }
         return "matches-detail";
     }
 
