@@ -8,4 +8,6 @@ public interface MatchesDao {
 
     List<Match> findMatches();
 
+    List<Match> findMatches(String text);
+
 }

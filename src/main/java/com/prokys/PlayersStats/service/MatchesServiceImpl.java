@@ -19,4 +19,9 @@ public class MatchesServiceImpl implements MatchesService{
     public List<Match> findMatches() {
         return matchesDao.findMatches();
     }
+
+    @Override
+    public List<Match> findMatches(String text) {
+        return matchesDao.findMatches(text);
+    }
 }

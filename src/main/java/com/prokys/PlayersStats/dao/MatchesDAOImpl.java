@@ -1,6 +1,7 @@
 package com.prokys.PlayersStats.dao;
 
 import com.prokys.PlayersStats.entity.Match;
+import com.prokys.PlayersStats.entity.Player;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
@@ -24,5 +25,20 @@ public class MatchesDAOImpl implements MatchesDao{
         TypedQuery<Match> query = entityManager.createQuery("FROM Match", Match.class);
 
         return query.getResultList();
+    }
+
+    @Override
+    public List<Match> findMatches(String text) {
+
+        // create query
+        TypedQuery<Match> query = entityManager.createQuery("FROM Match WHERE LOWER(homeTeam) LIKE LOWER(:text) OR LOWER(opponent) LIKE LOWER(:text)", Match.class);
+
+        // add parameter
+        query.setParameter("text", text+"%");
+
+        // execute query
+        List<Match> matches = query.getResultList();
+
+        return matches;
     }
 }

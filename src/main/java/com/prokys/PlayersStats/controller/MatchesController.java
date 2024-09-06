@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -20,9 +21,14 @@ public class MatchesController {
     }
 
     @GetMapping
-    public String listMatches(Model model){
-        List<Match> matches = matchesService.findMatches();
+    public String listMatches(@RequestParam(name = "text", required = false) String text, Model model){
+        List<Match> matches;
 
+        if (text != null && !text.isEmpty()) {
+            matches = matchesService.findMatches(text);
+        }else {
+            matches= matchesService.findMatches();
+        }
         model.addAttribute("matches", matches);
 
         return "matches-list";
