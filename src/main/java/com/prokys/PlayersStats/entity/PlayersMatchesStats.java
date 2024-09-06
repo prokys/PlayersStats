@@ -26,6 +26,9 @@ public class PlayersMatchesStats {
     @Column(name = "assists")
     private int assists;
 
+    @Column(name = "total")
+    private int total;
+
     @Column(name = "penalties")
     private int penalties;
 
@@ -75,6 +78,14 @@ public class PlayersMatchesStats {
 
     public void setAssists(int assists) {
         this.assists = assists;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
 
     public int getPenalties() {

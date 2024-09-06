@@ -51,12 +51,13 @@ th, td {
         <thead>
         <tr>
             <th>Date of match</th>
+            <th>Home team</th>
             <th>Opponent</th>
             <th>Location</th>
             <th>Season</th>
             <th>Goals</th>
             <th>Assists</th>
-            <th>Combined</th>
+            <th>Total</th>
             <th>Penalties</th>
             <th>On field difference</th>
             <th>Shots</th>
@@ -66,12 +67,13 @@ th, td {
         <tbody>
         <tr th:each="playerMatchStat : ${player.playersMatchesStats}">
             <td th:text="${#temporals.format(playerMatchStat.match.matchDate, 'dd.MM.yyyy')}"></td>
+            <td th:text="${playerMatchStat.match.homeTeam}"></td>
             <td th:text="${playerMatchStat.match.opponent}"></td>
             <td th:text="${playerMatchStat.match.location}"></td>
             <td th:text="${playerMatchStat.match.season}"></td>
             <td th:text="${playerMatchStat.goals}">
             <td th:text="${playerMatchStat.assists}">
-            <td th:text="${playerMatchStat.goals} + ${playerMatchStat.assists}">
+            <td th:text="${playerMatchStat.total}">
             <td th:text="${playerMatchStat.penalties}">
             <td th:text="${playerMatchStat.onFieldDifference}">
             <td th:text="${playerMatchStat.shots}">

@@ -19,6 +19,9 @@ public class Match {
     @Column(name = "match_date")
     private LocalDate matchDate;
 
+    @Column(name = "home_team")
+    private String homeTeam;
+
     @Column(name = "opponent")
     private String opponent;
 
@@ -47,6 +50,14 @@ public class Match {
 
     public void setMatchDate(LocalDate matchDate) {
         this.matchDate = matchDate;
+    }
+
+    public String getHomeTeam() {
+        return homeTeam;
+    }
+
+    public void setHomeTeam(String homeTeam) {
+        this.homeTeam = homeTeam;
     }
 
     public String getOpponent() {
@@ -86,8 +97,9 @@ public class Match {
     public Match() {
     }
 
-    public Match(LocalDate matchDate, String opponent, String location, String season) {
+    public Match(LocalDate matchDate, String homeTeam, String opponent, String location, String season) {
         this.matchDate = matchDate;
+        this.homeTeam = homeTeam;
         this.opponent = opponent;
         this.location = location;
         this.season = season;
