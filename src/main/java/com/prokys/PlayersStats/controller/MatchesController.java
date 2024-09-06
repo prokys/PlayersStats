@@ -33,4 +33,13 @@ public class MatchesController {
 
         return "matches-list";
     }
+
+    @GetMapping("/addNewMatch")
+    public String addNewMatch(Model model){
+        Match match = new Match();
+
+        model.addAttribute("match", match);
+
+        return "match-detail-edit";
+    }
 }
