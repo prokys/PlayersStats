@@ -21,7 +21,7 @@ th, td {
 <hr>
 <div>
     <h3>Match detail</h3>
-    <form action="#" th:action="@{/matches/update}" th:object="${match}" method="post">
+    <form action="#" th:action="@{/matches/save}" th:object="${match}" method="post">
 
         <input type="hidden" th:field="*{id}">
 

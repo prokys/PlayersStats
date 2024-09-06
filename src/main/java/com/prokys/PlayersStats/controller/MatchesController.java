@@ -4,9 +4,7 @@ import com.prokys.PlayersStats.entity.Match;
 import com.prokys.PlayersStats.service.MatchesService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -63,5 +61,13 @@ public class MatchesController {
         model.addAttribute("match", match);
 
         return "matches-detail-edit";
+    }
+
+    @PostMapping("/save")
+    public String saveMatch(@ModelAttribute(name = "match") Match match){
+
+        matchesService.saveMatch(match);
+
+        return "redirect:/matches/detail?matchId="+match.getId();
     }
 }

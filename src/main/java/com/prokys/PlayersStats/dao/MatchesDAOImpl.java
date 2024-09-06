@@ -46,4 +46,9 @@ public class MatchesDAOImpl implements MatchesDao{
     public Match findMatchById(int id) {
         return entityManager.find(Match.class, id);
     }
+
+    @Override
+    public void saveMatch(Match match) {
+        entityManager.merge(match);
+    }
 }

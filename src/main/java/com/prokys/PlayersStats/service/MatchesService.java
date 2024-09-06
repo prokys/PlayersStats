@@ -12,4 +12,6 @@ public interface MatchesService {
 
     Match findMatchById(int id);
 
+    void saveMatch(Match match);
+
 }

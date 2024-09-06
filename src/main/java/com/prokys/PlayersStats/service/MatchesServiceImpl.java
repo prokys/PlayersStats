@@ -3,6 +3,7 @@ package com.prokys.PlayersStats.service;
 import com.prokys.PlayersStats.dao.MatchesDao;
 import com.prokys.PlayersStats.entity.Match;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,5 +28,13 @@ public class MatchesServiceImpl implements MatchesService{
     @Override
     public Match findMatchById(int id){
         return matchesDao.findMatchById(id);
-    };
+    }
+
+    @Transactional
+    @Override
+    public void saveMatch(Match match) {
+        matchesDao.saveMatch(match);
+    }
+
+    ;
 }

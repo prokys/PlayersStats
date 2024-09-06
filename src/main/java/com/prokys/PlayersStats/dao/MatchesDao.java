@@ -12,4 +12,6 @@ public interface MatchesDao {
 
     Match findMatchById(int id);
 
+    void saveMatch(Match match);
+
 }
