@@ -52,6 +52,16 @@ public class MatchesController {
 
         model.addAttribute("match", match);
 
-        return "match-detail-edit";
+        return "matches-detail-edit";
+    }
+
+    @GetMapping("/edit")
+    public String editMatch(@RequestParam(name = "matchId")int id, Model model){
+
+        Match match = matchesService.findMatchById(id);
+
+        model.addAttribute("match", match);
+
+        return "matches-detail-edit";
     }
 }
