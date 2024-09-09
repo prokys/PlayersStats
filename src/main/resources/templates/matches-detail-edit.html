@@ -27,9 +27,13 @@ th, td {
 
         <input type="date" th:field="*{matchDate}" placeholder="Date of match">
 
-        <input type="text" th:field="*{homeTeam}" placeholder="Home team">
+        <select th:field="*{homeTeam.id}">
+            <option th:each="club : ${clubs}" th:value="${club.id}" th:text="${club.name}"></option>
+        </select>
 
-        <input type="text" th:field="*{opponent}" placeholder="Opponent">
+        <select th:field="*{opponent.id}">
+            <option th:each="club : ${clubs}" th:value="${club.id}" th:text="${club.name}"></option>
+        </select>
 
         <input type="text" th:field="*{location}" placeholder="Location">
 

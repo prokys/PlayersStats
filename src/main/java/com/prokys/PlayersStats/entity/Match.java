@@ -21,11 +21,13 @@ public class Match {
     @Column(name = "match_date")
     private LocalDate matchDate;
 
-    @Column(name = "home_team")
-    private String homeTeam;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "home_team_id")
+    private Club homeTeam;
 
-    @Column(name = "opponent")
-    private String opponent;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "opponent_id")
+    private Club opponent;
 
     @Column(name = "location")
     private String location;
@@ -54,19 +56,19 @@ public class Match {
         this.matchDate = matchDate;
     }
 
-    public String getHomeTeam() {
+    public Club getHomeTeam() {
         return homeTeam;
     }
 
-    public void setHomeTeam(String homeTeam) {
+    public void setHomeTeam(Club homeTeam) {
         this.homeTeam = homeTeam;
     }
 
-    public String getOpponent() {
+    public Club getOpponent() {
         return opponent;
     }
 
-    public void setOpponent(String opponent) {
+    public void setOpponent(Club opponent) {
         this.opponent = opponent;
     }
 
@@ -99,7 +101,7 @@ public class Match {
     public Match() {
     }
 
-    public Match(LocalDate matchDate, String homeTeam, String opponent, String location, String season) {
+    public Match(LocalDate matchDate, Club homeTeam, Club opponent, String location, String season) {
         this.matchDate = matchDate;
         this.homeTeam = homeTeam;
         this.opponent = opponent;

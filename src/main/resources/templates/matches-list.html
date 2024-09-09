@@ -40,7 +40,7 @@ th, td {
         <tr th:each="match : ${matches}">
             <td th:text="${#temporals.format(match.matchDate, 'dd.MM.yyyy')}" />
             <td >
-                <a th:text="${match.homeTeam} + ' vs ' + ${match.opponent}" th:href="@{/matches/detail(matchId=${match.id})}" />
+                <a th:text="${match.homeTeam.name} + ' vs ' + ${match.opponent.name}" th:href="@{/matches/detail(matchId=${match.id})}" />
             </td>
             <td th:text="${match.location}" />
             <td th:text="${match.season}" />
