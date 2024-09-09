@@ -32,7 +32,7 @@ public class Player {
     @OneToMany(mappedBy = "player")
     List<PlayersMatchesStats> playersMatchesStats;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "club_id")
     private Club club;
 

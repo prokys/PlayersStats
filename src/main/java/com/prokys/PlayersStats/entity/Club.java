@@ -18,7 +18,7 @@ public class Club {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "club")
+    @OneToMany(mappedBy = "club", fetch = FetchType.LAZY)
     private List<Player> players;
 
     // getters and setters

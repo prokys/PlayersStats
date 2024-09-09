@@ -1,6 +1,8 @@
 package com.prokys.PlayersStats.controller;
 
+import com.prokys.PlayersStats.entity.Club;
 import com.prokys.PlayersStats.entity.Player;
+import com.prokys.PlayersStats.service.ClubsService;
 import com.prokys.PlayersStats.service.PlayersService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +17,11 @@ public class PlayersController {
 
     private PlayersService playersService;
 
-    public PlayersController(PlayersService service) {
+    private ClubsService clubsService;
+
+    public PlayersController(PlayersService service, ClubsService cService) {
         playersService = service;
+        clubsService = cService;
     }
 
     @GetMapping()
@@ -57,8 +62,12 @@ public class PlayersController {
         // find player by id
         Player player = playersService.findPlayerById(playerId);
 
+        // find clubs for selection
+        List<Club> clubs = clubsService.findClubs();
+
         // add them to model
         model.addAttribute("player", player);
+        model.addAttribute("clubs", clubs);
 
         return "players-profile-edit";
     }
@@ -74,9 +83,16 @@ public class PlayersController {
 
     @GetMapping("/addNewPlayer")
     public String addNewPlayer(Model model){
+
+        // create empty player
         Player player = new Player();
 
+        // find clubs for selection
+        List<Club> clubs = clubsService.findClubs();
+
+        // add into model
         model.addAttribute("player", player);
+        model.addAttribute("clubs", clubs);
 
         return "players-profile-edit";
     }

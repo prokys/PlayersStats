@@ -33,6 +33,10 @@ th, td {
 
         <input type="date" th:field="*{dateOfBirth}" placeholder="Date of Birth">
 
+        <select th:field="*{club.id}">
+            <option th:each="club : ${clubs}" th:value="${club.id}" th:text="${club.name}"></option>
+        </select>
+
         <button type="submit">Save</button>
 
     </form>
