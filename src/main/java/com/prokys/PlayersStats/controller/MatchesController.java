@@ -2,8 +2,10 @@ package com.prokys.PlayersStats.controller;
 
 import com.prokys.PlayersStats.entity.Club;
 import com.prokys.PlayersStats.entity.Match;
+import com.prokys.PlayersStats.entity.Season;
 import com.prokys.PlayersStats.service.ClubsService;
 import com.prokys.PlayersStats.service.MatchesService;
+import com.prokys.PlayersStats.service.SeasonsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,12 +17,13 @@ import java.util.List;
 public class MatchesController {
 
     MatchesService matchesService;
-
     ClubsService clubsService;
+    SeasonsService seasonsService;
 
-    MatchesController(MatchesService service, ClubsService cService){
+    MatchesController(MatchesService service, ClubsService cService, SeasonsService sService){
         matchesService = service;
         clubsService = cService;
+        seasonsService = sService;
     }
 
     @GetMapping
@@ -64,9 +67,13 @@ public class MatchesController {
         // get clubs
         List<Club> clubs = clubsService.findClubs();
 
+        // get seasons
+        List<Season> seasons = seasonsService.findSeasons();
+
         // add into model
         model.addAttribute("clubs", clubs);
         model.addAttribute("match", match);
+        model.addAttribute("seasons", seasons);
 
         return "matches-detail-edit";
     }
@@ -80,9 +87,13 @@ public class MatchesController {
         // get clubs
         List<Club> clubs = clubsService.findClubs();
 
+        // get seasons
+        List<Season> seasons = seasonsService.findSeasons();
+
         // add into model
         model.addAttribute("clubs", clubs);
         model.addAttribute("match", match);
+        model.addAttribute("seasons", seasons);
 
         return "matches-detail-edit";
     }

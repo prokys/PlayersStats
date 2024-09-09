@@ -37,7 +37,9 @@ th, td {
 
         <input type="text" th:field="*{location}" placeholder="Location">
 
-        <input type="text" th:field="*{season}" placeholder="Season">
+        <select th:field="*{season.id}">
+            <option th:each="season : ${seasons}" th:value="${season.id}" th:text="${season.name}"></option>
+        </select>
 
         <button type="submit">Save</button>
 
