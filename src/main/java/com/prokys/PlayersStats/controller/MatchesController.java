@@ -1,9 +1,11 @@
 package com.prokys.PlayersStats.controller;
 
 import com.prokys.PlayersStats.entity.Club;
+import com.prokys.PlayersStats.entity.Location;
 import com.prokys.PlayersStats.entity.Match;
 import com.prokys.PlayersStats.entity.Season;
 import com.prokys.PlayersStats.service.ClubsService;
+import com.prokys.PlayersStats.service.LocationsService;
 import com.prokys.PlayersStats.service.MatchesService;
 import com.prokys.PlayersStats.service.SeasonsService;
 import org.springframework.stereotype.Controller;
@@ -19,11 +21,13 @@ public class MatchesController {
     MatchesService matchesService;
     ClubsService clubsService;
     SeasonsService seasonsService;
+    LocationsService locationsService;
 
-    MatchesController(MatchesService service, ClubsService cService, SeasonsService sService){
+    MatchesController(MatchesService service, ClubsService cService, SeasonsService sService, LocationsService lService){
         matchesService = service;
         clubsService = cService;
         seasonsService = sService;
+        locationsService = lService;
     }
 
     @GetMapping
@@ -70,10 +74,14 @@ public class MatchesController {
         // get seasons
         List<Season> seasons = seasonsService.findSeasons();
 
+        // get locations
+        List<Location> locations = locationsService.getLocation();
+
         // add into model
         model.addAttribute("clubs", clubs);
         model.addAttribute("match", match);
         model.addAttribute("seasons", seasons);
+        model.addAttribute("locations", locations);
 
         return "matches-detail-edit";
     }
@@ -90,10 +98,14 @@ public class MatchesController {
         // get seasons
         List<Season> seasons = seasonsService.findSeasons();
 
+        // get locations
+        List<Location> locations = locationsService.getLocation();
+
         // add into model
         model.addAttribute("clubs", clubs);
         model.addAttribute("match", match);
         model.addAttribute("seasons", seasons);
+        model.addAttribute("locations", locations);
 
         return "matches-detail-edit";
     }

@@ -35,7 +35,9 @@ th, td {
             <option th:each="club : ${clubs}" th:value="${club.id}" th:text="${club.name}"></option>
         </select>
 
-        <input type="text" th:field="*{location}" placeholder="Location">
+        <select th:field="*{location.id}">
+            <option th:each="location : ${locations}" th:value="${location.id}" th:text="${location.name}"></option>
+        </select>
 
         <select th:field="*{season.id}">
             <option th:each="season : ${seasons}" th:value="${season.id}" th:text="${season.name}"></option>
