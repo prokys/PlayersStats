@@ -38,6 +38,10 @@ th, td {
             <th>Date of birth</th>
             <td th:text="*{#temporals.format(player.dateOfBirth, 'dd.MM.yyyy')}"/>
         </tr>
+        <tr>
+            <th>Club</th>
+            <td th:text="*{player.club.name}"/>
+        </tr>
     </table>
     <a th:href="@{/players/edit(playerId=${player.id})}">Edit player</a>
     <a th:href="@{/players/delete(playerId=${player.id})}" onclick="if (!(confirm('Are you sure you want to delete player?'))) return false">Delete player</a>

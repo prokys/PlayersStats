@@ -32,6 +32,10 @@ public class Player {
     @OneToMany(mappedBy = "player")
     List<PlayersMatchesStats> playersMatchesStats;
 
+    @ManyToOne
+    @JoinColumn(name = "club_id")
+    private Club club;
+
 
     // getters and setters
     public int getId() {
@@ -80,6 +84,14 @@ public class Player {
 
     public void setPlayersMatchesStats(List<PlayersMatchesStats> playersMatchesStats) {
         this.playersMatchesStats = playersMatchesStats;
+    }
+
+    public Club getClub() {
+        return club;
+    }
+
+    public void setClub(Club club) {
+        this.club = club;
     }
 
     // constructors
