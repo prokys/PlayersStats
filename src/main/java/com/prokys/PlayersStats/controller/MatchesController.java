@@ -70,4 +70,11 @@ public class MatchesController {
 
         return "redirect:/matches/detail?matchId="+match.getId();
     }
+
+    @GetMapping("/delete")
+    public String deleteMatch(@RequestParam(name = "matchId") int id){
+        matchesService.deleteMatch(id);
+
+        return "redirect:/matches";
+    }
 }

@@ -51,4 +51,12 @@ public class MatchesDAOImpl implements MatchesDao{
     public void saveMatch(Match match) {
         entityManager.merge(match);
     }
+
+    @Override
+    public void deleteMatch(int id) {
+
+        Match match = entityManager.find(Match.class, id);
+
+        entityManager.remove(match);
+    }
 }

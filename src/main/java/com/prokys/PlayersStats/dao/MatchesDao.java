@@ -14,4 +14,6 @@ public interface MatchesDao {
 
     void saveMatch(Match match);
 
+    void deleteMatch(int id);
+
 }

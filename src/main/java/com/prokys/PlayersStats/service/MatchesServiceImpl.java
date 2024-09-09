@@ -36,5 +36,9 @@ public class MatchesServiceImpl implements MatchesService{
         matchesDao.saveMatch(match);
     }
 
-    ;
+    @Transactional
+    @Override
+    public void deleteMatch(int id) {
+        matchesDao.deleteMatch(id);
+    }
 }
