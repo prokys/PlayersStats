@@ -32,8 +32,9 @@ public class Match {
     @Column(name = "location")
     private String location;
 
-    @Column(name = "season")
-    private String season;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "season_id")
+    private Season season;
 
     @OneToMany(mappedBy = "match")
     List<PlayersMatchesStats> playersMatchesStats;
@@ -80,11 +81,11 @@ public class Match {
         this.location = location;
     }
 
-    public String getSeason() {
+    public Season getSeason() {
         return season;
     }
 
-    public void setSeason(String season) {
+    public void setSeason(Season season) {
         this.season = season;
     }
 
@@ -101,7 +102,7 @@ public class Match {
     public Match() {
     }
 
-    public Match(LocalDate matchDate, Club homeTeam, Club opponent, String location, String season) {
+    public Match(LocalDate matchDate, Club homeTeam, Club opponent, String location, Season season) {
         this.matchDate = matchDate;
         this.homeTeam = homeTeam;
         this.opponent = opponent;
