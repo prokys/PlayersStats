@@ -18,6 +18,9 @@ public class Club {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "shortcut")
+    private String shortcut;
+
     @OneToMany(mappedBy = "club", fetch = FetchType.LAZY)
     private List<Player> players;
 

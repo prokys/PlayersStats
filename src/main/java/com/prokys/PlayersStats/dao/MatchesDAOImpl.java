@@ -31,10 +31,13 @@ public class MatchesDAOImpl implements MatchesDao{
     public List<Match> findMatches(String text) {
 
         // create query
-        TypedQuery<Match> query = entityManager.createQuery("FROM Match WHERE LOWER(homeTeam) LIKE LOWER(:text) OR LOWER(opponent) LIKE LOWER(:text)", Match.class);
+        TypedQuery<Match> query = entityManager.createQuery(
+                "FROM Match m JOIN m.homeTeam ht JOIN m.opponent o " +
+                   "WHERE LOWER(ht.name) LIKE LOWER(:text) OR LOWER(ht.name) LIKE LOWER(CONCAT('% ', :text)) "+
+                        "OR LOWER(o.name) LIKE LOWER(:text) OR LOWER(o.name) LIKE LOWER(CONCAT('% ', :text))", Match.class);
 
         // add parameter
-        query.setParameter("text", text+"%");
+        query.setParameter("text", text.toLowerCase()+"%");
 
         // execute query
         List<Match> matches = query.getResultList();
