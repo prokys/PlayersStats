@@ -43,6 +43,14 @@ public class Club {
         this.name = name;
     }
 
+    public String getShortcut() {
+        return shortcut;
+    }
+
+    public void setShortcut(String shortcut) {
+        this.shortcut = shortcut;
+    }
+
     public List<Player> getPlayers() {
         return players;
     }
@@ -57,7 +65,8 @@ public class Club {
     public Club() {
     }
 
-    public Club(String name) {
+    public Club(String name, String shortcut) {
         this.name = name;
+        this.shortcut = shortcut;
     }
 }
