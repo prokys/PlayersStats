@@ -36,4 +36,9 @@ public class ClubsServiceImpl implements ClubsService{
     public void saveClub(Club club){
         clubsDAO.saveClub(club);
     }
+    @Transactional
+    @Override
+    public void deleteClubById(int id) {
+        clubsDAO.deleteClubById(id);
+    }
 }

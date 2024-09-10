@@ -77,4 +77,12 @@ public class ClubsController {
 
         return "clubs/clubs-detail-edit";
     }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam(name = "clubId") int id){
+
+        clubsService.deleteClubById(id);
+
+        return "redirect:/clubs";
+    }
 }

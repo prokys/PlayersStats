@@ -13,4 +13,6 @@ public interface ClubsDAO {
     Club findClubById(int id);
 
     void saveClub(Club club);
+
+    void deleteClubById(int id);
 }

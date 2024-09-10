@@ -44,4 +44,12 @@ public class ClubsDAOImpl implements ClubsDAO{
     public void saveClub(Club club){
         entityManager.merge(club);
     }
+
+    @Override
+    public void deleteClubById(int id){
+
+        Club club = entityManager.find(Club.class, id);
+
+        entityManager.remove(club);
+    }
 }

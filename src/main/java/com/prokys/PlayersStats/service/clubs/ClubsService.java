@@ -13,4 +13,6 @@ public interface ClubsService {
     Club findClubById(int id);
 
     void saveClub(Club club);
+
+    void deleteClubById(int id);
 }
