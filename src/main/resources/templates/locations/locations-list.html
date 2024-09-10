@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Locations List</title>
+
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+
+<h1>Locations</h1>
+<hr>
+<form action="#" th:action="@{/locations}" method="get">
+    <input type="text" name="text" placeholder="Search for location">
+    <input type="submit" value="Search">
+</form>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Location</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Map</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="club : ${clubs}">
+            <td>
+                <a th:text="${location.name}" th:href="@{/locations/detail(locationId=${location.id})}"/>
+            </td>
+            <td th:text="${location.city}" />
+            <td th:text="${location.address}" />
+            <td>
+                <a th:href="${location.mapLink}">Link</a>
+            </td>
+            <td>
+                <a th:href="@{/locations/delete(locationId=${location.id})}" onclick="if (!(confirm('Are you sure you want to delete location?'))) return false">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/location/addNewLocation}">Add new location</a>
+
+
+</body>
+</html>
