@@ -41,7 +41,11 @@ public class LocationsController {
 
         model.addAttribute("location", location);
 
-        return "/locations/locations-detail";
+        if (location == null){
+            return "redirect:/locations";
+        }else {
+            return "/locations/locations-detail";
+        }
     }
 
     @GetMapping("/edit")
@@ -60,6 +64,16 @@ public class LocationsController {
         locationsService.saveLocation(location);
 
         return "redirect:/locations/detail?locationId=" + location.getId();
+    }
+
+    @GetMapping("/addNewLocation")
+    public String addNewLocation(Model model){
+
+        Location location = new Location();
+
+        model.addAttribute("location", location);
+
+        return "locations/locations-detail-edit";
     }
 
 }
