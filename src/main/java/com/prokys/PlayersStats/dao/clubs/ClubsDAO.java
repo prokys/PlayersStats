@@ -11,4 +11,6 @@ public interface ClubsDAO {
     List<Club> findClubs(String text);
 
     Club findClubById(int id);
+
+    void saveClub(Club club);
 }

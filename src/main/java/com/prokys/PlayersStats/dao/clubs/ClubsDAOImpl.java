@@ -39,4 +39,9 @@ public class ClubsDAOImpl implements ClubsDAO{
     public Club findClubById(int id) {
         return entityManager.find(Club.class, id);
     }
+
+    @Override
+    public void saveClub(Club club){
+        entityManager.merge(club);
+    }
 }

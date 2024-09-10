@@ -4,9 +4,7 @@ import com.prokys.PlayersStats.entity.Club;
 import com.prokys.PlayersStats.service.clubs.ClubsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -56,5 +54,13 @@ public class ClubsController {
         model.addAttribute("club", club);
 
         return "/clubs/clubs-detail-edit";
+    }
+
+    @PostMapping("/save")
+    public String saveClub(@ModelAttribute(name = "club") Club club){
+
+        clubsService.saveClub(club);
+
+        return "redirect:/clubs/detail?clubId=" + club.getId();
     }
 }
