@@ -37,13 +37,23 @@ public class LocationsController {
     }
 
     @GetMapping("/detail")
-    public String editLocation(@RequestParam(name = "locationId")int id, Model model){
+    public String locationDetail(@RequestParam(name = "locationId")int id, Model model){
 
         Location location = locationsService.findLocationById(id);
 
         model.addAttribute("location", location);
 
         return "/locations/locations-detail";
+    }
+
+    @GetMapping("/edit")
+    public String editLocation(@RequestParam(name = "locationId") int id, Model model){
+
+        Location location = locationsService.findLocationById(id);
+
+        model.addAttribute("location", location);
+
+        return "/locations/locations-detail-edit";
     }
 
 }
