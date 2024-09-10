@@ -24,4 +24,9 @@ public class LocationsServiceImpl implements LocationsService{
     public List<Location> getLocation(String text) {
         return locationsDAO.getLocations(text);
     }
+
+    @Override
+    public Location findLocationById(int id) {
+        return locationsDAO.getLocationById(id);
+    }
 }

@@ -9,4 +9,6 @@ public interface LocationsDAO {
     List<Location> getLocations();
 
     List<Location> getLocations(String text);
+
+    Location getLocationById(int id);
 }

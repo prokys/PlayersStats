@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Location detail</title>
+
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h1>Location detail</h1>
+<hr>
+<div>
+    <h3>Location info</h3>
+    <table>
+        <tr>
+            <th>Location</th>
+            <td th:text="*{location.name}"/>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td th:text="*{location.city}"/>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td th:text="*{location.address}"/>
+        </tr>
+        <tr>
+            <th>Map</th>
+            <td>
+                <a target="_blank" th:href="*{location.mapLink}"/>Link</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/locations/edit(locationId=${location.id})}">Edit location</a>
+    <a th:href="@{/locations/delete(locationId=${location.id})}" onclick="if (!(confirm('Are you sure you want to delete location?'))) return false">Delete location</a>
+    <br><br>
+    <a th:href="@{/locations}">Back</a>
+</div>
+
+</body>
+</html>

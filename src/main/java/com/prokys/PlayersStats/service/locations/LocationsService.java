@@ -10,4 +10,6 @@ public interface LocationsService {
 
     List<Location> getLocation(String text);
 
+    Location findLocationById(int id);
+
 }
