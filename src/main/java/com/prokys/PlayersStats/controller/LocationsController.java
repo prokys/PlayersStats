@@ -4,9 +4,7 @@ import com.prokys.PlayersStats.entity.Location;
 import com.prokys.PlayersStats.service.locations.LocationsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -54,6 +52,14 @@ public class LocationsController {
         model.addAttribute("location", location);
 
         return "/locations/locations-detail-edit";
+    }
+
+    @PostMapping("/save")
+    public String saveLocation(@ModelAttribute(name = "location") Location location, Model model){
+
+        locationsService.saveLocation(location);
+
+        return "redirect:/locations/detail?locationId=" + location.getId();
     }
 
 }

@@ -12,4 +12,6 @@ public interface LocationsService {
 
     Location findLocationById(int id);
 
+    void saveLocation(Location location);
+
 }

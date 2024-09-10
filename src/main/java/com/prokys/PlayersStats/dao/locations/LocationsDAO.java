@@ -11,4 +11,6 @@ public interface LocationsDAO {
     List<Location> getLocations(String text);
 
     Location getLocationById(int id);
+
+    void saveLocation(Location location);
 }
