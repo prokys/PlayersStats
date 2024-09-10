@@ -43,7 +43,11 @@ public class ClubsController {
 
         model.addAttribute("club", club);
 
-        return "/clubs/clubs-detail";
+        if (club == null){
+            return "redirect:/clubs";
+        }else {
+            return "/clubs/clubs-detail";
+        }
     }
 
     @GetMapping("/edit")
@@ -62,5 +66,15 @@ public class ClubsController {
         clubsService.saveClub(club);
 
         return "redirect:/clubs/detail?clubId=" + club.getId();
+    }
+
+    @GetMapping("/addNewClub")
+    public String addNewClub(Model model){
+
+        Club club = new Club();
+
+        model.addAttribute("club", club);
+
+        return "clubs/clubs-detail-edit";
     }
 }
