@@ -7,4 +7,6 @@ import java.util.List;
 public interface ClubsService {
 
     List<Club> findClubs();
+
+    List<Club> findClubs(String text);
 }

@@ -23,4 +23,15 @@ public class ClubsDAOImpl implements ClubsDAO{
 
         return query.getResultList();
     }
+
+    @Override
+    public List<Club> findClubs(String text) {
+
+        TypedQuery<Club> query = entityManager.createQuery("FROM Club WHERE LOWER(name) LIKE LOWER(:text) OR "+
+                "LOWER(name) LIKE LOWER(CONCAT('% ', :text))", Club.class);
+
+        query.setParameter("text", text.toLowerCase()+"%");
+
+        return query.getResultList();
+    }
 }
