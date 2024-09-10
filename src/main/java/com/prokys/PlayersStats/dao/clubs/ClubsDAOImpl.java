@@ -34,4 +34,9 @@ public class ClubsDAOImpl implements ClubsDAO{
 
         return query.getResultList();
     }
+
+    @Override
+    public Club findClubById(int id) {
+        return entityManager.find(Club.class, id);
+    }
 }

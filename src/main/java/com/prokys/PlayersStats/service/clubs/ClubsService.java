@@ -9,4 +9,6 @@ public interface ClubsService {
     List<Club> findClubs();
 
     List<Club> findClubs(String text);
+
+    Club findClubById(int id);
 }

@@ -38,4 +38,13 @@ public class ClubsController {
         return "/clubs/clubs-list";
     }
 
+    @GetMapping("/detail")
+    public String clubDetail(@RequestParam(name = "clubId") int id, Model model){
+
+        Club club = clubsService.findClubById(id);
+
+        model.addAttribute("club", club);
+
+        return "/clubs/clubs-detail";
+    }
 }

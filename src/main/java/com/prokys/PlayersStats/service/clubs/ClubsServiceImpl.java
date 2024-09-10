@@ -24,4 +24,9 @@ public class ClubsServiceImpl implements ClubsService{
     public List<Club> findClubs(String text) {
         return clubsDAO.findClubs(text);
     }
+
+    @Override
+    public Club findClubById(int id) {
+        return clubsDAO.findClubById(id);
+    }
 }

@@ -36,7 +36,9 @@ th, td {
     </thead>
     <tbody>
         <tr th:each="club : ${clubs}">
-            <td th:text="${club.name}" />
+            <td>
+                <a th:text="${club.name}" th:href="@{/clubs/detail(clubId=${club.id})}"/>
+            </td>
             <td th:text="${club.shortcut}" />
             <td>
                 <a th:href="@{/clubs/delete(clubId=${club.id})}" onclick="if (!(confirm('Are you sure you want to delete player?'))) return false">Delete</a>

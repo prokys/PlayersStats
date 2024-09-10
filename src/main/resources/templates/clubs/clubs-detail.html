@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Club detail</title>
+
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h1>Club detail</h1>
+<hr>
+<div>
+    <h3>Club info</h3>
+    <table>
+        <tr>
+            <th>Club</th>
+            <td th:text="*{club.name}"/>
+        </tr>
+        <tr>
+            <th>Shortcut</th>
+            <td th:text="*{club.shortcut}"/>
+        </tr>
+    </table>
+    <a th:href="@{/clubs/edit(clubId=${club.id})}">Edit club</a>
+    <a th:href="@{/clubs/delete(clubId=${club.id})}" onclick="if (!(confirm('Are you sure you want to delete player?'))) return false">Delete club</a>
+    <br><br>
+    <a th:href="@{/clubs}">Back</a>
+</div>
+
+</body>
+</html>
