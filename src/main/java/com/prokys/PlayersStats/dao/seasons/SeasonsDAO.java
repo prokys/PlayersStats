@@ -1,4 +1,4 @@
-package com.prokys.PlayersStats.dao;
+package com.prokys.PlayersStats.dao.seasons;
 
 import com.prokys.PlayersStats.entity.Season;
 

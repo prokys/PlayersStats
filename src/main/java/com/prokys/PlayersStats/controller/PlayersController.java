@@ -2,13 +2,12 @@ package com.prokys.PlayersStats.controller;
 
 import com.prokys.PlayersStats.entity.Club;
 import com.prokys.PlayersStats.entity.Player;
-import com.prokys.PlayersStats.service.ClubsService;
-import com.prokys.PlayersStats.service.PlayersService;
+import com.prokys.PlayersStats.service.clubs.ClubsService;
+import com.prokys.PlayersStats.service.players.PlayersService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -39,7 +38,7 @@ public class PlayersController {
         // add them to model
         model.addAttribute("players", players);
 
-        return "players-list";
+        return "/players/players-list";
     }
 
     @GetMapping("/profile")
@@ -53,7 +52,7 @@ public class PlayersController {
         if (player == null){
             return "redirect:/players";
         }
-        return "players-profile";
+        return "/players/players-profile";
     }
 
     @GetMapping("/edit")
@@ -69,7 +68,7 @@ public class PlayersController {
         model.addAttribute("player", player);
         model.addAttribute("clubs", clubs);
 
-        return "players-profile-edit";
+        return "/players/players-profile-edit";
     }
 
     @PostMapping("/update")
@@ -94,7 +93,7 @@ public class PlayersController {
         model.addAttribute("player", player);
         model.addAttribute("clubs", clubs);
 
-        return "players-profile-edit";
+        return "/players/players-profile-edit";
     }
 
     @GetMapping("/delete")

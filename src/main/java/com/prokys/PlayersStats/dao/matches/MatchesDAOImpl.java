@@ -1,7 +1,6 @@
-package com.prokys.PlayersStats.dao;
+package com.prokys.PlayersStats.dao.matches;
 
 import com.prokys.PlayersStats.entity.Match;
-import com.prokys.PlayersStats.entity.Player;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;

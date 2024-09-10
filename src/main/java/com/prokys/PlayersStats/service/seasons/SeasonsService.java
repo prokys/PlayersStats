@@ -1,7 +1,6 @@
-package com.prokys.PlayersStats.service;
+package com.prokys.PlayersStats.service.seasons;
 
 import com.prokys.PlayersStats.entity.Season;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

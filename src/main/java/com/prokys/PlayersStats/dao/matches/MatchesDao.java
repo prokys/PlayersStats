@@ -1,14 +1,14 @@
-package com.prokys.PlayersStats.service;
+package com.prokys.PlayersStats.dao.matches;
 
 import com.prokys.PlayersStats.entity.Match;
 
 import java.util.List;
 
-public interface MatchesService {
+public interface MatchesDao {
 
-    public List<Match> findMatches();
+    List<Match> findMatches();
 
-    public List<Match> findMatches(String text);
+    List<Match> findMatches(String text);
 
     Match findMatchById(int id);
 

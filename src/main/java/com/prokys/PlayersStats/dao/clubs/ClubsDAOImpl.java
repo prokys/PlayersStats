@@ -1,4 +1,4 @@
-package com.prokys.PlayersStats.dao;
+package com.prokys.PlayersStats.dao.clubs;
 
 import com.prokys.PlayersStats.entity.Club;
 import jakarta.persistence.EntityManager;

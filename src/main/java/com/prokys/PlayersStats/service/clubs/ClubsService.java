@@ -1,4 +1,4 @@
-package com.prokys.PlayersStats.service;
+package com.prokys.PlayersStats.service.clubs;
 
 import com.prokys.PlayersStats.entity.Club;
 

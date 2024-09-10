@@ -1,4 +1,4 @@
-package com.prokys.PlayersStats.dao;
+package com.prokys.PlayersStats.dao.locations;
 
 import com.prokys.PlayersStats.entity.Location;
 import jakarta.persistence.EntityManager;

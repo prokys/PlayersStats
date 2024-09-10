@@ -4,10 +4,10 @@ import com.prokys.PlayersStats.entity.Club;
 import com.prokys.PlayersStats.entity.Location;
 import com.prokys.PlayersStats.entity.Match;
 import com.prokys.PlayersStats.entity.Season;
-import com.prokys.PlayersStats.service.ClubsService;
-import com.prokys.PlayersStats.service.LocationsService;
-import com.prokys.PlayersStats.service.MatchesService;
-import com.prokys.PlayersStats.service.SeasonsService;
+import com.prokys.PlayersStats.service.clubs.ClubsService;
+import com.prokys.PlayersStats.service.locations.LocationsService;
+import com.prokys.PlayersStats.service.matches.MatchesService;
+import com.prokys.PlayersStats.service.seasons.SeasonsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -46,7 +46,7 @@ public class MatchesController {
         // add into model
         model.addAttribute("matches", matches);
 
-        return "matches-list";
+        return "/matches/matches-list";
     }
 
     @GetMapping("/detail")
@@ -60,7 +60,7 @@ public class MatchesController {
         if (match == null){
             return "redirect:/matches";
         }
-        return "matches-detail";
+        return "/matches/matches-detail";
     }
 
     @GetMapping("/addNewMatch")
@@ -83,7 +83,7 @@ public class MatchesController {
         model.addAttribute("seasons", seasons);
         model.addAttribute("locations", locations);
 
-        return "matches-detail-edit";
+        return "/matches/matches-detail-edit";
     }
 
     @GetMapping("/edit")
@@ -107,7 +107,7 @@ public class MatchesController {
         model.addAttribute("seasons", seasons);
         model.addAttribute("locations", locations);
 
-        return "matches-detail-edit";
+        return "/matches/matches-detail-edit";
     }
 
     @PostMapping("/save")

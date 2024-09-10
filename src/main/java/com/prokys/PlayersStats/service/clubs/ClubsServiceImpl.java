@@ -1,6 +1,6 @@
-package com.prokys.PlayersStats.service;
+package com.prokys.PlayersStats.service.clubs;
 
-import com.prokys.PlayersStats.dao.ClubsDAO;
+import com.prokys.PlayersStats.dao.clubs.ClubsDAO;
 import com.prokys.PlayersStats.entity.Club;
 import org.springframework.stereotype.Service;
 

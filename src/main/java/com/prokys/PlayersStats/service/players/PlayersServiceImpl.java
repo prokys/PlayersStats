@@ -1,6 +1,6 @@
-package com.prokys.PlayersStats.service;
+package com.prokys.PlayersStats.service.players;
 
-import com.prokys.PlayersStats.dao.PlayersDAO;
+import com.prokys.PlayersStats.dao.players.PlayersDAO;
 import com.prokys.PlayersStats.entity.Player;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,6 +1,6 @@
-package com.prokys.PlayersStats.service;
+package com.prokys.PlayersStats.service.matches;
 
-import com.prokys.PlayersStats.dao.MatchesDao;
+import com.prokys.PlayersStats.dao.matches.MatchesDao;
 import com.prokys.PlayersStats.entity.Match;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

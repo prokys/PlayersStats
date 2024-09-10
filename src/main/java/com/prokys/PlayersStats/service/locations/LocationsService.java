@@ -1,4 +1,4 @@
-package com.prokys.PlayersStats.service;
+package com.prokys.PlayersStats.service.locations;
 
 import com.prokys.PlayersStats.entity.Location;
 

@@ -1,6 +1,6 @@
-package com.prokys.PlayersStats.service;
+package com.prokys.PlayersStats.service.locations;
 
-import com.prokys.PlayersStats.dao.LocationsDAO;
+import com.prokys.PlayersStats.dao.locations.LocationsDAO;
 import com.prokys.PlayersStats.entity.Location;
 import org.springframework.stereotype.Service;
 

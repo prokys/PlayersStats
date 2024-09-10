@@ -1,10 +1,10 @@
-package com.prokys.PlayersStats.dao;
+package com.prokys.PlayersStats.service.players;
 
 import com.prokys.PlayersStats.entity.Player;
 
 import java.util.List;
 
-public interface PlayersDAO {
+public interface PlayersService {
 
     List<Player> findPlayers();
 
@@ -14,5 +14,5 @@ public interface PlayersDAO {
 
     void updatePlayer(Player player);
 
-    void deleteById(int id);
+    void deletePlayer(int id);
 }
