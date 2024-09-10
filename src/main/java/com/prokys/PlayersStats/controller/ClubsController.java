@@ -47,4 +47,14 @@ public class ClubsController {
 
         return "/clubs/clubs-detail";
     }
+
+    @GetMapping("/edit")
+    public String clubEdit(@RequestParam(name = "clubId") int id, Model model){
+
+        Club club = clubsService.findClubById(id);
+
+        model.addAttribute("club", club);
+
+        return "/clubs/clubs-detail-edit";
+    }
 }
