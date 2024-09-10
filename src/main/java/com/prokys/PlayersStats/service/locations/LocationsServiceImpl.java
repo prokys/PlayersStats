@@ -36,4 +36,10 @@ public class LocationsServiceImpl implements LocationsService{
     public void saveLocation(Location location) {
         locationsDAO.saveLocation(location);
     }
+
+    @Override
+    @Transactional
+    public void deleteLocationById(int id) {
+        locationsDAO.deleteLocationById(id);
+    }
 }

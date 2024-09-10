@@ -76,4 +76,12 @@ public class LocationsController {
         return "locations/locations-detail-edit";
     }
 
+    @GetMapping("/delete")
+    public String deleteLocation(@RequestParam(name = "locationId") int id){
+
+        locationsService.deleteLocationById(id);
+
+        return "redirect:/locations";
+    }
+
 }

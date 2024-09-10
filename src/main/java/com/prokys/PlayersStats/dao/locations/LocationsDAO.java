@@ -13,4 +13,6 @@ public interface LocationsDAO {
     Location getLocationById(int id);
 
     void saveLocation(Location location);
+
+    void deleteLocationById(int id);
 }

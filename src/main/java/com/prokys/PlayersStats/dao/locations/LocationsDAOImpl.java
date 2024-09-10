@@ -44,4 +44,12 @@ public class LocationsDAOImpl implements LocationsDAO{
     public void saveLocation(Location location) {
         entityManager.merge(location);
     }
+
+    @Override
+    public void deleteLocationById(int id) {
+
+        Location location = entityManager.find(Location.class, id);
+
+        entityManager.remove(location);
+    }
 }
