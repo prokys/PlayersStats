@@ -7,4 +7,6 @@ import java.util.List;
 public interface LocationsDAO {
 
     List<Location> getLocations();
+
+    List<Location> getLocations(String text);
 }

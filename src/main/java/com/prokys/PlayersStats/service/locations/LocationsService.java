@@ -8,4 +8,6 @@ public interface LocationsService {
 
     List<Location> getLocation();
 
+    List<Location> getLocation(String text);
+
 }

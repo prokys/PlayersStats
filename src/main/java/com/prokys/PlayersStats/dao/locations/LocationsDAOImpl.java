@@ -23,4 +23,15 @@ public class LocationsDAOImpl implements LocationsDAO{
 
         return query.getResultList();
     }
+
+    @Override
+    public List<Location> getLocations(String text){
+
+        TypedQuery<Location> query = entityManager.createQuery("FROM Location WHERE LOWER(name) LIKE LOWER(:text) " +
+                "OR LOWER(name) LIKE LOWER(CONCAT('% ', :text))", Location.class);
+
+        query.setParameter("text", text.toLowerCase()+"%");
+
+        return query.getResultList();
+    }
 }

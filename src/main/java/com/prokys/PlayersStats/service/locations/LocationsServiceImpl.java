@@ -19,4 +19,9 @@ public class LocationsServiceImpl implements LocationsService{
     public List<Location> getLocation() {
         return locationsDAO.getLocations();
     }
+
+    @Override
+    public List<Location> getLocation(String text) {
+        return locationsDAO.getLocations(text);
+    }
 }

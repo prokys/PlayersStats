@@ -37,14 +37,14 @@ th, td {
         </tr>
     </thead>
     <tbody>
-        <tr th:each="club : ${clubs}">
+        <tr th:each="location : ${location}">
             <td>
                 <a th:text="${location.name}" th:href="@{/locations/detail(locationId=${location.id})}"/>
             </td>
             <td th:text="${location.city}" />
             <td th:text="${location.address}" />
             <td>
-                <a th:href="${location.mapLink}">Link</a>
+                <a target="_blank" th:href="${location.mapLink}">Link</a>
             </td>
             <td>
                 <a th:href="@{/locations/delete(locationId=${location.id})}" onclick="if (!(confirm('Are you sure you want to delete location?'))) return false">Delete</a>
