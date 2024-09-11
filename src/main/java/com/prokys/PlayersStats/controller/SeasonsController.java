@@ -40,13 +40,23 @@ public class SeasonsController {
     }
 
     @GetMapping("/detail")
-    public String seasonEdit(@RequestParam(name = "seasonId")int id, Model model){
+    public String seasonDetail(@RequestParam(name = "seasonId")int id, Model model){
 
         Season season = seasonsService.findSeasonById(id);
 
         model.addAttribute("season", season);
 
         return "/seasons/seasons-detail";
+    }
+
+    @GetMapping("/edit")
+    public String seasonEdit(@RequestParam(name = "seasonId")int id, Model model){
+
+        Season season = seasonsService.findSeasonById(id);
+
+        model.addAttribute("season", season);
+
+        return "/seasons/seasons-detail-edit";
     }
 
 }
