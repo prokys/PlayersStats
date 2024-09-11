@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stats</title>
+
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h1>Stats</h1>
+<hr>
+<div>
+    <h3>Create new stat</h3>
+    <form action="#" th:action="@{/stats/save}" th:object="${stat}" method="post">
+
+        <input type="hidden" th:field="*{id}">
+
+        <select th:field="*{match.id}">
+            <option th:each="match : ${matches}" th:value="${match.id}" th:text="${match.matchDate} + ' ' + ${match.homeTeam.name} + ' vs ' + ${match.opponent.name}"></option>
+        </select>
+
+        <select th:field="*{player.id}">
+            <option th:each="player : ${players}" th:value="${player.id}" th:text="${player.firstName} + ' ' + ${player.lastName}"></option>
+        </select>
+
+        <input type="text" th:field="*{goals}" placeholder="Goals">
+
+        <input type="text" th:field="*{assists}" placeholder="Assists">
+
+        <input type="text" th:field="*{total}" placeholder="Total">
+
+        <input type="text" th:field="*{penalties}" placeholder="Penalties">
+
+        <input type="text" th:field="*{onFieldDifference}" placeholder="On field difference">
+
+        <input type="text" th:field="*{shots}" placeholder="Shots">
+
+        <button type="submit">Save</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

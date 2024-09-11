@@ -46,9 +46,18 @@ th, td {
     </table>
     <a th:href="@{/matches/edit(matchId=${match.id})}">Edit match</a>
     <a th:href="@{/matches/delete(matchId=${match.id})}" onclick="if (!(confirm('Are you sure you want to delete player?'))) return false">Delete match</a>
+</div>
+
+<div>
     <br><br>
     <a th:href="@{/matches}">Back</a>
+
+    <br><br>
+
+    <a th:href="@{/stats/add(matchId=${match.id})}">Add players stat for match</a>
 </div>
+
+
 
 </body>
 </html>
