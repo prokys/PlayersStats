@@ -44,7 +44,11 @@ public class SeasonsController {
 
         model.addAttribute("season", season);
 
-        return "/seasons/seasons-detail";
+        if (season == null){
+            return "redirect:/seasons";
+        }else {
+            return "/seasons/seasons-detail";
+        }
     }
 
     @GetMapping("/edit")
@@ -63,6 +67,16 @@ public class SeasonsController {
         seasonsService.saveSeason(season);
 
         return "redirect:/seasons/detail?seasonId=" + season.getId();
+    }
+
+    @GetMapping("/addNewSeason")
+    public String addNewSeason(Model model){
+
+        Season season = new Season();
+
+        model.addAttribute("season", season);
+
+        return "seasons/seasons-detail-edit";
     }
 
 }
