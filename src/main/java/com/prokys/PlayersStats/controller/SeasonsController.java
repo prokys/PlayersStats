@@ -79,4 +79,12 @@ public class SeasonsController {
         return "seasons/seasons-detail-edit";
     }
 
+    @GetMapping("/delete")
+    public String deleteSeason(@RequestParam("seasonId") int id){
+
+        seasonsService.deleteSeasonById(id);
+
+        return "redirect:/seasons";
+    }
+
 }

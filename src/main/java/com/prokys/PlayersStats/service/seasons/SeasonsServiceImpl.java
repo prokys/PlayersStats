@@ -35,4 +35,10 @@ public class SeasonsServiceImpl implements SeasonsService{
     public void saveSeason(Season season) {
         seasonsDAO.saveSeason(season);
     }
+
+    @Override
+    @Transactional
+    public void deleteSeasonById(int id) {
+        seasonsDAO.deleteSeasonById(id);
+    }
 }

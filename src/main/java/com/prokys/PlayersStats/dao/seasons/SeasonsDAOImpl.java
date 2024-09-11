@@ -42,4 +42,12 @@ public class SeasonsDAOImpl implements SeasonsDAO {
     public void saveSeason(Season season) {
         entityManager.merge(season);
     }
+
+    @Override
+    public void deleteSeasonById(int id) {
+
+        Season season = entityManager.find(Season.class, id);
+
+        entityManager.remove(season);
+    }
 }

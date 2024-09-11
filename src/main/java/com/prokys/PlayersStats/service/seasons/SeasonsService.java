@@ -14,4 +14,6 @@ public interface SeasonsService {
     Season findSeasonById(int id);
 
     void saveSeason(Season season);
+
+    void deleteSeasonById(int id);
 }
