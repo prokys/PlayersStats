@@ -21,10 +21,17 @@ public class SeasonsController {
     }
 
     @GetMapping
-    public String getSeasons(Model model){
+    public String getSeasons(@RequestParam(name = "text", required = false)String text, Model model){
+
+        // create empty list
+        List<Season> seasons;
 
         // get list of seasons
-        List<Season> seasons = seasonsService.findSeasons();
+        if (text != null && !text.isEmpty()){
+            seasons = seasonsService.findSeasons(text);
+        }else {
+            seasons = seasonsService.findSeasons();
+        }
 
         // add into model
         model.addAttribute("seasons", seasons);

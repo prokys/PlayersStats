@@ -23,6 +23,17 @@ public class SeasonsDAOImpl implements SeasonsDAO {
     }
 
     @Override
+    public List<Season> findSeasons(String text) {
+
+        TypedQuery<Season> query = entityManager.createQuery("FROM Season WHERE LOWER(name) LIKE LOWER(:text) OR " +
+                "LOWER(name) LIKE LOWER(CONCAT('%/', :text))", Season.class);
+
+        query.setParameter("text", text.toLowerCase()+"%");
+
+        return query.getResultList();
+    }
+
+    @Override
     public Season findSeasonById(int id) {
         return entityManager.find(Season.class, id);
     }

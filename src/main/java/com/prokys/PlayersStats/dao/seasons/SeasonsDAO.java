@@ -8,5 +8,7 @@ public interface SeasonsDAO {
 
     List<Season> findSeasons();
 
+    List<Season> findSeasons(String text);
+
     Season findSeasonById(int id);
 }
