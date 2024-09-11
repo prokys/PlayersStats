@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Seasons info</title>
+
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h1>Season</h1>
+<hr>
+<div>
+    <h3>Season detail</h3>
+    <form action="#" th:action="@{/seasons/save}" th:object="${season}" method="post">
+
+        <input type="hidden" th:field="*{id}">
+
+        <input type="text" th:field="*{name}" placeholder="Season name">
+
+        <button type="submit">Save</button>
+
+    </form>
+
+    <a th:href="@{/seasons/detail(seasonId=${season.id})}">Back</a>
+
+</div>
+
+</body>
+</html>

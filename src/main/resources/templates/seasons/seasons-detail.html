@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Season detail</title>
+
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h1>Season detail</h1>
+<hr>
+<div>
+    <h3>Season info</h3>
+    <table>
+        <tr>
+            <th>Season</th>
+            <td th:text="*{season.name}"/>
+        </tr>
+    </table>
+    <a th:href="@{/seasons/edit(seasonId=${season.id})}">Edit season</a>
+    <a th:href="@{/seasons/delete(seasonId=${season.id})}" onclick="if (!(confirm('Are you sure you want to delete season?'))) return false">Delete season</a>
+    <br><br>
+    <a th:href="@{/seasons}">Back</a>
+</div>
+
+</body>
+</html>

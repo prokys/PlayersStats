@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Seasons List</title>
+
+    <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+</head>
+<body>
+
+
+<h1>Seasons</h1>
+<hr>
+<form action="#" th:action="@{/seasons}" method="get">
+    <input type="text" name="text" placeholder="Search for season">
+    <input type="submit" value="Search">
+</form>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>seasons</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="season : ${seasons}">
+            <td>
+                <a th:text="${season.name}" th:href="@{/season/detail(seasonId=${season.id})}"/>
+            </td>
+            <td>
+                <a th:href="@{/seasons/delete(seasonId=${season.id})}" onclick="if (!(confirm('Are you sure you want to delete season?'))) return false">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/seasons/addNewSeason}">Add new season</a>
+
+
+</body>
+</html>
