@@ -7,4 +7,6 @@ import java.util.List;
 public interface SeasonsDAO {
 
     List<Season> findSeasons();
+
+    Season findSeasonById(int id);
 }

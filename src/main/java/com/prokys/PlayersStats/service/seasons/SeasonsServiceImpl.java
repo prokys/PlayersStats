@@ -18,4 +18,9 @@ public class SeasonsServiceImpl implements SeasonsService{
     public List<Season> findSeasons() {
         return seasonsDAO.findSeasons();
     }
+
+    @Override
+    public Season findSeasonById(int id) {
+        return seasonsDAO.findSeasonById(id);
+    }
 }

@@ -21,4 +21,9 @@ public class SeasonsDAOImpl implements SeasonsDAO {
 
         return query.getResultList();
     }
+
+    @Override
+    public Season findSeasonById(int id) {
+        return entityManager.find(Season.class, id);
+    }
 }

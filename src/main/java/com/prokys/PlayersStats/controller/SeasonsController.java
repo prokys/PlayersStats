@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -29,6 +30,16 @@ public class SeasonsController {
         model.addAttribute("seasons", seasons);
 
         return "/seasons/seasons-list";
+    }
+
+    @GetMapping("/detail")
+    public String seasonEdit(@RequestParam(name = "seasonId")int id, Model model){
+
+        Season season = seasonsService.findSeasonById(id);
+
+        model.addAttribute("season", season);
+
+        return "/seasons/seasons-detail";
     }
 
 }

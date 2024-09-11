@@ -8,4 +8,6 @@ import java.util.List;
 public interface SeasonsService {
 
     List<Season> findSeasons();
+
+    Season findSeasonById(int id);
 }
