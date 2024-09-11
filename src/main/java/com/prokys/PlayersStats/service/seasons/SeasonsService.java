@@ -12,4 +12,6 @@ public interface SeasonsService {
     List<Season> findSeasons(String text);
 
     Season findSeasonById(int id);
+
+    void saveSeason(Season season);
 }

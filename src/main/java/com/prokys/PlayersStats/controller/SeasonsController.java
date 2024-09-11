@@ -4,9 +4,7 @@ import com.prokys.PlayersStats.entity.Season;
 import com.prokys.PlayersStats.service.seasons.SeasonsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -57,6 +55,14 @@ public class SeasonsController {
         model.addAttribute("season", season);
 
         return "/seasons/seasons-detail-edit";
+    }
+
+    @PostMapping("/save")
+    public String seasonSave(@ModelAttribute(name = "season") Season season){
+
+        seasonsService.saveSeason(season);
+
+        return "redirect:/seasons/detail?seasonId=" + season.getId();
     }
 
 }

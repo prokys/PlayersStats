@@ -3,6 +3,7 @@ package com.prokys.PlayersStats.service.seasons;
 import com.prokys.PlayersStats.dao.seasons.SeasonsDAO;
 import com.prokys.PlayersStats.entity.Season;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
@@ -27,5 +28,11 @@ public class SeasonsServiceImpl implements SeasonsService{
     @Override
     public Season findSeasonById(int id) {
         return seasonsDAO.findSeasonById(id);
+    }
+
+    @Override
+    @Transactional
+    public void saveSeason(Season season) {
+        seasonsDAO.saveSeason(season);
     }
 }

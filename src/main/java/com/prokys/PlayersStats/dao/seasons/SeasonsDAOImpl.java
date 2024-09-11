@@ -37,4 +37,9 @@ public class SeasonsDAOImpl implements SeasonsDAO {
     public Season findSeasonById(int id) {
         return entityManager.find(Season.class, id);
     }
+
+    @Override
+    public void saveSeason(Season season) {
+        entityManager.merge(season);
+    }
 }
