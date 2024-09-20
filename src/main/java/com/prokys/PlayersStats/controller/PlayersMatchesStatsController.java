@@ -5,11 +5,10 @@ import com.prokys.PlayersStats.entity.Player;
 import com.prokys.PlayersStats.entity.PlayersMatchesStats;
 import com.prokys.PlayersStats.service.matches.MatchesService;
 import com.prokys.PlayersStats.service.players.PlayersService;
+import com.prokys.PlayersStats.service.playersMatchesStats.PlayersMatchesStatsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +19,12 @@ public class PlayersMatchesStatsController {
 
     private PlayersService playersService;
     private MatchesService matchesService;
+    private PlayersMatchesStatsService playersMatchesStatsService;
 
-    public PlayersMatchesStatsController(PlayersService pService, MatchesService mService){
+    public PlayersMatchesStatsController(PlayersService pService, MatchesService mService, PlayersMatchesStatsService pmsService){
         playersService = pService;
         matchesService = mService;
+        playersMatchesStatsService = pmsService;
     }
 
     @GetMapping("/add")
@@ -55,4 +56,11 @@ public class PlayersMatchesStatsController {
         return "/stats/stats-edit";
     }
 
+    @PostMapping("/save")
+    public String save(@ModelAttribute(name = "stat") PlayersMatchesStats playersMatchesStats){
+
+        playersMatchesStatsService.saveStat(playersMatchesStats);
+
+        return "redirect:/players";
+    }
 }

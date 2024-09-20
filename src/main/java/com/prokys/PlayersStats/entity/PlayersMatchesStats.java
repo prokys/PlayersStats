@@ -26,7 +26,7 @@ public class PlayersMatchesStats {
     @Column(name = "assists")
     private int assists;
 
-    @Column(name = "total")
+    @Column(name = "total", insertable = false, updatable = false)
     private int total;
 
     @Column(name = "penalties")
@@ -116,4 +116,18 @@ public class PlayersMatchesStats {
     public PlayersMatchesStats() {
     }
 
+    @Override
+    public String toString() {
+        return "PlayersMatchesStats{" +
+                "id=" + id +
+                ", player=" + player.getId() +
+                ", match=" + match.getId() +
+                ", goals=" + goals +
+                ", assists=" + assists +
+                ", total=" + total +
+                ", penalties=" + penalties +
+                ", onFieldDifference=" + onFieldDifference +
+                ", shots=" + shots +
+                '}';
+    }
 }
