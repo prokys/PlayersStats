@@ -40,6 +40,7 @@ public class PlayersMatchesStatsController {
             players.add(player);
         } else {
             players = playersService.findPlayers();
+            players.removeAll(playersMatchesStatsService.getPlayerByMatchId(matchId));
         }
 
         if (matchId != null){
@@ -47,6 +48,7 @@ public class PlayersMatchesStatsController {
             matches.add(match);
         } else {
             matches = matchesService.findMatches();
+            matches.removeAll(playersMatchesStatsService.getMatchesByPlayerId(playerId));
         }
 
         model.addAttribute("players", players);
