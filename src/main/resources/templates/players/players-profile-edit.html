@@ -25,31 +25,37 @@ th, td {
 
         <input type="hidden" th:field="*{id}">
 
+        <br>
+        <label>First name</label>
         <input type="text" th:field="*{firstName}" placeholder="First Name">
 
+        <br>
+        <label>Last name</label>
         <input type="text" th:field="*{lastName}" placeholder="Last Name">
 
+        <br>
+        <label>Email</label>
         <input type="text" th:field="*{email}" placeholder="Email">
 
+        <br>
+        <label>Date of birth</label>
         <input type="date" th:field="*{dateOfBirth}" placeholder="Date of Birth">
 
+        <br>
+        <label>Club</label>
         <select th:field="*{club.id}">
             <option th:each="club : ${clubs}" th:value="${club.id}" th:text="${club.name}"></option>
         </select>
 
+        <br>
         <button type="submit">Save</button>
 
     </form>
 
+    <br><br>
     <a th:href="@{/players/profile(playerId=${player.id})}">Back</a>
 
 </div>
-<div>
-    <h3>Statistics</h3>
-
-    <p>tbd</p>
-</div>
-
 
 </body>
 </html>

@@ -25,18 +25,28 @@ th, td {
 
         <input type="hidden" th:field="*{id}">
 
+        <br>
+        <label>Location name</label>
         <input type="text" th:field="*{name}" placeholder="Location name">
 
+        <br>
+        <label>City</label>
         <input type="text" th:field="*{city}" placeholder="City">
 
+        <br>
+        <label>Address</label>
         <input type="text" th:field="*{address}" placeholder="Address">
 
+        <br>
+        <label>Link</label>
         <input type="text" th:field="*{mapLink}" placeholder="Map link">
 
+        <br>
         <button type="submit">Save</button>
 
     </form>
 
+    <br><br>
     <a th:href="@{/locations/detail(locationId=${location.id})}">Back</a>
 
 </div>

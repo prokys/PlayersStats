@@ -25,14 +25,20 @@ th, td {
 
         <input type="hidden" th:field="*{id}">
 
+        <br>
+        <label>Club name</label>
         <input type="text" th:field="*{name}" placeholder="Club name">
 
+        <br>
+        <label>Shortcut</label>
         <input type="text" th:field="*{shortcut}" placeholder="Shortcut">
 
+        <br>
         <button type="submit">Save</button>
 
     </form>
 
+    <br><br>
     <a th:href="@{/clubs/detail(clubId=${club.id})}">Back</a>
 
 </div>

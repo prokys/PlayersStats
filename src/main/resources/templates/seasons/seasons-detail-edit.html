@@ -25,12 +25,16 @@ th, td {
 
         <input type="hidden" th:field="*{id}">
 
+        <br>
+        <label>Season</label>
         <input type="text" th:field="*{name}" placeholder="Season name">
 
+        <br>
         <button type="submit">Save</button>
 
     </form>
 
+    <br><br>
     <a th:href="@{/seasons/detail(seasonId=${season.id})}">Back</a>
 
 </div>

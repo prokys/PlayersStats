@@ -25,24 +25,38 @@ th, td {
 
         <input type="hidden" th:field="*{id}">
 
+        <label>Match</label>
         <select th:field="*{match.id}">
             <option th:each="match : ${matches}" th:value="${match.id}" th:text="${match.matchDate} + ' ' + ${match.homeTeam.name} + ' vs ' + ${match.opponent.name}"></option>
         </select>
 
+        <br>
+        <label>Player</label>
         <select th:field="*{player.id}">
             <option th:each="player : ${players}" th:value="${player.id}" th:text="${player.firstName} + ' ' + ${player.lastName}"></option>
         </select>
 
-        <input type="text" th:field="*{goals}" placeholder="Goals">
+        <br>
+        <label>Goals</label>
+        <input id="goals" type="text" th:field="*{goals}" placeholder="Goals">
 
+        <br>
+        <label>Assists</label>
         <input type="text" th:field="*{assists}" placeholder="Assists">
 
+        <br>
+        <label>Penalties</label>
         <input type="text" th:field="*{penalties}" placeholder="Penalties">
 
+        <br>
+        <label>+/-</label>
         <input type="text" th:field="*{onFieldDifference}" placeholder="On field difference">
 
+        <br>
+        <label>Shots</label>
         <input type="text" th:field="*{shots}" placeholder="Shots">
 
+        <br>
         <button type="submit">Save</button>
 
     </form>
